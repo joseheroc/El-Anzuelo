@@ -1,0 +1,385 @@
+ *{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+header{ 
+   background:#235415 ;
+    color: rgb(255, 255, 255);
+    text-align: left;
+    padding: 10px;
+}
+h1{
+    padding: 2px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: right;
+}
+h2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    padding: 10px;
+}
+nav{
+    background:#FEFFF9;
+}
+.menu{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+.menu li{
+    margin: 10px;
+}
+.menu a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding:  10px 20px;
+    transition: 0.3s;
+}
+.menu a:hover{
+    background: #0B77C4;
+    color: rgb(255, 255, 255);
+    box-shadow: 0 0 100px #072958;
+}
+main{
+display: flex;
+padding: 20px;
+gap:10px;/*separacion de elementos en el main*/
+flex:1;/*Cuantos espacios se ocupan en el main, 1 para que sea un solo espacio*/
+background-color: rgb(255, 255, 255);
+}
+aside{
+    flex: 1;
+    background: #ffffff;
+    padding: 20px;
+    overflow: hidden;
+    position: relative;
+}
+article{
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center
+}
+article img{
+    width: 100%;
+    height: 500px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+ p{
+    color: rgb(0, 0, 0);
+    line-height: 1.9;
+    text-align: justify;
+    font-size: larger;
+}
+.contenedor-articulos{
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr 1fr;
+}
+.contenedor-normal {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr 1fr;
+}
+.logo img{
+    width: 120px;
+    height: auto;
+    display: block;
+}
+.texto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-1%, -90%);
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+.banner {
+    background-image: url("Imagenes/logo.png");
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    width: 50%;
+    position: relative;
+}
+.contenido {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+}
+footer{
+    background: #235415;
+    color: rgb(228, 228, 228);
+    text-align: center;
+    padding: 10px;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+}
+form{
+    text-align: center;
+    flex-direction: column;
+    gap: 10px;
+}
+   .btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+.container {
+  max-width: 1200px;
+}
+.section {
+  padding: 70px 0;
+}
+.row {
+  justify-content: center;
+}
+.card-servicio {
+  max-width: 350px;
+  margin: auto;
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+.card-servicio:hover {
+  transform: translateY(-10px);
+}
+.img-servicio {
+  height: 220px;
+  object-fit: cover;
+}
+.hero-servicios {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('Imagenes/iniciofinal.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.carousel img {
+  border-radius: 10px;
+}
+.section {
+  padding: 70px 0;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+}
+.carrito {
+  width: 80px;   
+  height: auto; 
+}
+/* TABLET */
+@media (max-width: 992px) {
+
+  main {
+    flex-direction: column;
+  }
+  .contenedor-articulos,
+  .contenedor-normal {
+    grid-template-columns: 1fr; 
+  }
+  .banner {
+    width: 100%;
+    height: 400px;
+  }
+  article img {
+    height: 300px;
+  }
+}
+/* Celular */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  p {
+    font-size: 16px;
+  }
+  .menu {
+    flex-direction: column;
+    align-items: center;
+  }
+  .menu li {
+    margin: 5px 0;
+  }
+  .logo img {
+    width: 90px;
+    margin: auto;
+  }
+  .banner {
+    height: 300px;
+  }
+  article img {
+    height: 250px;
+  }
+  .texto {
+    font-size: 18px;
+  }
+  .carrito {
+    width: 60px;
+  }
+}
+/*  Pantalla pequeña */
+@media (max-width: 480px) {
+
+  .texto {
+    font-size: 14px;
+  }
+
+  .banner {
+    height: 250px;
+  }
+
+  article img {
+    height: 200px;
+  }
+
+}
+
+h2 {
+  text-align: center;
+}
+
+.contenedor {
+  max-width: 700px;
+  margin: auto;
+}
+
+.formulario {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  background: #235415;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.comentario {
+  background: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.nombre {
+  font-weight: bold;
+}
+
+.estrellas {
+  color: gold;
+}
+
+ .hero-servicios {
+      background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)), url('Imagenes/pesca\ fin\ 33.jpg');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+
+    }
+
+    .section { padding: 70px 0; }
+
+.container {
+  max-width: 1200px;
+}
+
+.row {
+  justify-content: center;
+}
+
+.card-servicio {
+  max-width: 350px;
+  margin:  auto;
+}
+    .card-servicio {
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: .3s ease;
+    }
+    .card-servicio:hover { transform: translateY(-10px); }
+    .img-servicio {
+      height: 220px;
+      object-fit: cover;
+    }
+
+    body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+}
+footer {
+  margin-top: auto;
+}
+.contenedor-articulos{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+}
+table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+th, td {
+  padding: 12px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+
+
+

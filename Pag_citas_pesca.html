@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citas</title>
+    <link rel="shortcut icon" href="Imagenes/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="hoja.css">
+    <link rel="stylesheet" href="boostrap.css">
+
+</head>
+
+ <header>
+        <div class="logo">
+            
+            <img src="Imagenes/logo.png" alt="Logo de PECARDON">
+        </div>
+        <div style="position:absolute; top:20px; right:20px; cursor:pointer;" onclick="toggleCarrito()">
+  <span id="contadorCarrito"></span>
+  <img src="Imagenes/carrito 21.png" class="carrito">
+</div>
+    </header>
+<script src="carrito.js/carrito.js"></script>
+    <nav>
+        <ul class ="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Pag_servicios.html">Servicios</a></li>
+            <li><a href="Pag_tienda.html">tienda</a></li>
+            <li><a href="Pag_calificaciones.html">Calificaciones</a></li>
+            <li><a href="Pag_mapa.html">Mapa</a></li>
+            <li><a href="Pag_citas.html">Citas</a></li>
+        </ul>
+    </nav>
+
+    <div id="carritoPanel" style="
+  display:none;
+  position:fixed;
+  top:60px;
+  right:20px;
+  width:300px;
+  background:white;
+  border:1px solid #e4e4e4;
+  padding:10px;
+  box-shadow:0 0 10px rgba(0,0,0,0.2);
+  z-index:1000;
+">
+  <h5>Carrito</h5>
+  <ul id="listaCarrito"></ul>
+  <p id="total"></p>
+
+</div>
+<body>
+
+<form action="Pag_citas.html">
+    <button type="submit">Volver a Citas</button>
+</form>
+
+<h2>En este apartado podrás agendar citas para citas de pesca</h2>
+<div class="contenedor">
+<form action="https://formsubmit.co/markitossoto2006@gmail.com" method="POST" id="formulario">
+
+    Nombre: <br>
+    <input type="text" id="nombre"><br><br>
+
+    Apellidos: <br>
+    <input type="text" id="apellidos"><br><br>
+
+    Teléfono (8 dígitos): <br>
+    <input type="text" id="telefono"><br><br>
+
+    Fecha tour: <br>
+    <input type="date" id="fecha" ><br><br>
+
+    Horas de servicio: <br>
+    04:00 - 19:00 <br>
+    Hora tour: <br>
+    <input type="time" id="hora" min="04:00" max="19:00"><br><br>
+
+    Cantidad de personas: <br>
+     <input type="number" name="personas" id="personas">
+    <br><br>
+
+
+    Nivel de natacion: <br>
+    <select id="nivel-natacion">
+        <option value="">Seleccione</option>
+        <option>Principiante</option>
+        <option>Intermedio</option>
+        <option>Avanzado</option>
+    </select><br><br>
+
+    Bote de preferencia: <br>
+    <select id="bote-preferencia">
+        <option value="">Seleccione</option>
+        <option>Lancha (7 personas maximo)</option>
+        <option>Yate (13 personas maximo)</option>
+    </select><br><br>
+    
+    Nivel de pesca: <br>
+    <select id="nivel-pesca">
+        <option value="">Seleccione</option>
+        <option>Principiante</option>
+        <option>Intermedio</option>
+        <option>Avanzado</option>
+    </select><br><br>
+
+   Bebidas de preferencia: <br>
+   <input type="radio" name="bebida"> Powerade <br>
+    <input type="radio" name="bebida"> Agua <br>
+    <input type="radio" name="bebida"> Refresco <br>
+    <br>
+
+    Algun padecimiento de la tripulacion: <br>
+    <textarea id="comentario"></textarea><br><br>
+
+    zona de el mapa preferida: <br>
+    <select id="zona">
+        <option value="">Seleccione</option>
+        <option>zona 1</option>
+        <option>zona 2</option>
+        <option>zona 3</option>
+        <option>zona 4</option>
+    </select><br><br>
+
+    Correo: 
+    <input type="email" id="email"><br><br>
+
+    <button type="reset">Limpiar</button>
+    <button type="submit">Enviar</button>
+
+<br>
+</form>
+</div>
+<br>
+<script>
+    document.getElementById("formulario").addEventListener("submit", function(e) {
+    e.preventDefault();
+    let camposFormulario = document.querySelectorAll("input, select, textarea");
+    camposFormulario.forEach(elementos => elementos.classList.remove("error"));
+
+        let nombre = document.getElementById("nombre")
+        if ( nombre.value.trim() === ""){ nombre.classList.add("error");
+            nombre.focus();
+            return;
+        }
+
+          let apellidos = document.getElementById("apellidos")
+        if ( apellidos.value.trim() === ""){apellidos.classList.add("error");
+            apellidos.focus();
+            return;
+        }
+
+        let telefono = document.getElementById("telefono");
+        let patron = /^\d{8}$/;
+        if (!patron.test(telefono.value)) { telefono.classList.add("error");
+            telefono.focus();
+            telefono.value = "";
+            return;
+        }
+
+           let fecha = document.getElementById("fecha");
+        if (fecha.value === "") {fecha.classList.add("error");
+            fecha.focus();
+            return;
+        }
+
+        let cantidad = document.getElementById("personas");
+        if (cantidad.value === "" || cantidad.value <= 0) { cantidad.classList.add("error");
+            cantidad.focus();
+            return;
+        }
+
+        let nivel = document.getElementById("nivel-natacion")
+        if (nivel.value === "") { nivel.classList.add("error");
+            nivel.focus();
+            return;
+        }
+
+        let bote = document.getElementById("bote-preferencia")
+        if (bote.value === "") { bote.classList.add("error");
+            bote.focus();
+            return;
+        }
+
+        let pesca = document.getElementById("nivel-pesca")
+        if (pesca.value === "") { pesca.classList.add("error");
+            pesca.focus();
+            return;
+        }
+
+        let bebidas = document.querySelectorAll('input[name="bebida"]:checked');
+        if (bebidas.length === 0) { alert("Seleccione una bebida de preferencia");
+            document.querySelector('input[name="bebida"]').focus();
+            return;
+        }
+
+        let comentario = document.getElementById("comentario");
+        if (comentario.value.trim() === ""){ comentario.classList.add("error");
+            comentario.focus();
+            return;
+        }
+
+          let zona = document.getElementById("zona")
+        if (zona.value === "") {  zona.classList.add("error");
+            zona.focus();
+            return;
+        }
+
+             let correo = document.getElementById("email");
+        if (email.value.trim() === ""){  email.classList.add("error");
+            email.focus();
+            return;
+        }
+
+    });
+</script> 
+
+</body>
+  <footer class=" text-white text-center p-3">
+    <div>
+      <h3>Horario</h3>
+      <table class="tabla-footer">
+        <tr><td text-center>Lunes - Domingo </td> <td> 4:00 AM - 7:00 PM</td></tr>
+      </table>
+    </div>
+
+    <div>
+      <h3>Contactanos</h3>
+      <p>Puntarenas, Costa Rica</p>
+      <p>Tel: 6189-5551</p>
+      <p class="copy">© 2026 PECARDON</p>
+    </div>
+
+  </div>
+  
+  </footer>
+
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda</title>
+    <link rel="shortcut icon" href="Imagenes/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="hoja.css">
+    <link rel="stylesheet" href="boostrap.css">
+</head>
+
+ <header>
+        <div class="logo">
+            <img src="Imagenes/logo.png" alt="Logo de PECARDON">
+        </div>
+  <div style="position:absolute; top:20px; right:20px; cursor:pointer;" onclick="toggleCarrito()">
+  <span id="contadorCarrito"></span>
+  <img src="Imagenes/carrito 21.png" class="carrito">
+</div>
+</div>
+    </header>
+
+    <nav>
+        <ul class ="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Pag_servicios.html">Servicios</a></li>
+            <li><a href="Pag_tienda.html">tienda</a></li>
+            <li><a href="Pag_calificaciones.html">Calificaciones</a></li>
+            <li><a href="Pag_mapa.html">Mapa</a></li>
+            <li><a href="Pag_citas.html">Citas</a></li>
+        </ul>
+    </nav>
+
+    <div id="carritoPanel" style="
+  display:none;
+  position:fixed;
+  top:60px;
+  right:20px;
+  width:300px;
+  background:rgb(255, 255, 255);
+  border:1px solid #e4e4e4;
+  padding:10px;
+  box-shadow:0 0 10px rgba(0,0,0,0.2);
+  z-index:1000;
+">
+  <h5>Carrito</h5>
+  <ul id="listaCarrito"></ul>
+
+  <p id="total"></p>
+</div>
+<body>
+
+
+
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Equipos de Pesca</h2>
+
+  <div id="mensaje" style="display:none; color: green; text-align:center; font-weight:bold;">
+  Producto agregado al carrito 
+</div> 
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card shadow mb-4">
+        <img src="Imagenes/caña 1.jpg" class="card-img-top" alt="Caña">
+        <div class="card-body">
+          <h5 class="card-title">Caña de Pescar</h5>
+          <p class="card-text">Alta resistencia para pesca profesional.</p>
+          <p class="fw-bold">₡41,000</p>
+           <a href="https://es.wikipedia.org/wiki/Ca%C3%B1a_de_pesca" target="_blank" class="stretched-link"></a>
+          <button class="btn btn-primary w-100 position-relative" style="z-index: 2;" onclick="agregarCarrito('Caña de Pescar', 41000)">Agregar a el carrito</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow mb-4">
+        <img src="Imagenes/carrete.webp" class="card-img-top" alt="Carrete">
+        <div class="card-body">
+          <h5 class="card-title">Carrete Profesional</h5>
+          <p class="card-text">Suave y resistente al agua salada.</p>
+          <p class="fw-bold">₡30,000</p>
+           <a href="https://es.wikipedia.org/wiki/Archivo:Carretes_de_Pesca.jpg"target="_blank"class="stretched-link"></a>
+          <button class="btn btn-primary w-100 position-relative"style="z-index: 2;" onclick="agregarCarrito('Carrete Profesional', 30000)">Agregar a el carrito</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow mb-4">
+        <img src="Imagenes/anzuelo1.jpg" class="card-img-top" alt="Anzuelo">
+        <div class="card-body">
+          <h5 class="card-title">Kit de Anzuelos</h5>
+          <p class="card-text">Variedad para diferentes tipos de pesca.</p>
+          <p class="fw-bold">₡8,000</p>
+           <a href="https://es.wikipedia.org/wiki/Cebo"target="_blank"class="stretched-link"></a>
+          <button class="btn btn-primary w-100 position-relative"style="z-index: 2;" onclick="agregarCarrito('Kit de Anzuelos', 8000)">Agregar a el carrito</button>
+        </div>
+      </div>
+    </div>
+
+       <div class="col-md-4">
+      <div class="card shadow mb-4">
+        <img src="Imagenes/erd de pesca.webp" class="card-img-top" alt="Anzuelo">
+        <div class="card-body">
+          <h5 class="card-title">Red de Pesca</h5>
+          <p class="card-text">Resistente hasta 50 kg con una red de alta calidad.</p>
+          <p class="fw-bold">₡9,000</p>
+          <a href="https://es.wikipedia.org/wiki/Red_de_pesca"target="_blank"  class="stretched-link"></a>
+          <button class="btn btn-primary w-100 position-relative"style="z-index: 2;" onclick="agregarCarrito('red de pesca', 9000)">Agregar a el carrito</button>
+        </div>
+      </div>
+    </div>
+
+       <div class="col-md-4">
+      <div class="card shadow mb-4">
+        <img src="Imagenes/bolso.jpg" class="card-img-top" alt="Anzuelo">
+        <div class="card-body">
+          <h5 class="card-title">Bolso seco</h5>
+          <p class="card-text">Resistente al agua y se puede sumergir.</p>
+          <p class="fw-bold">₡50,000</p>
+          <a href="https://en.wikipedia.org/wiki/Dry_bag" target="_blank"class="stretched-link"></a>
+          <button class="btn btn-primary w-100 position-relative" style="z-index: 2;" onclick="agregarCarrito('Bolso seco', 50000)">Agregar a el carrito</button>
+        </div>
+      </div>
+    </div>
+
+       <div class="col-md-4">
+      <div class="card shadow mb-4">
+        <img src="Imagenes/hielera.jpg" class="card-img-top" alt="Anzuelo">
+        <div class="card-body">
+          <h5 class="card-title">Hielera de Alta Resistencia</h5>
+          <p class="card-text">Perfecta para mantener tu pesca fresca por hasta 37 horas y cuenta con una capa de plastico resistente a caidas de hasta 2 metros.</p>
+          <p class="fw-bold">₡150,000</p>
+           <a href="https://es.wikipedia.org/wiki/Hielera" target="_blank" class="stretched-link"></a>
+          <button class="btn btn-primary w-100 position-relative"style="z-index: 2;" onclick="agregarCarrito('Hielera ', 150000)">Agregar a el carrito</button>
+        </div>
+      </div>
+    </div>
+
+        <div class="col-md-4">
+      <div class="card shadow mb-4">
+        <img src="Imagenes/caja de snuelos 2.webp" class="card-img-top" alt="CAja de señuelos">
+        <div class="card-body">
+          <h5 class="card-title">Caja de Señuelos</h5>
+          <p class="card-text"> se pueden guardar diferentes tipos de señuelos para diversas modalidades de pesca.</p>
+          <p class="fw-bold">₡7,000</p>
+          <a href="https://en.wikipedia.org/wiki/Fishing_tackle"target="_blank"class="stretched-link"></a>
+          <button class="btn btn-primary w-100 position-relative"  style="z-index: 2;" onclick="agregarCarrito('Caja de Señuelos', 7000)">Agregar a el carrito</button>
+        </div>
+      </div>
+    </div>
+
+        <div class="col-md-4">
+      <div class="card shadow mb-4">
+        <img src="Imagenes/kit de herr.jpg" class="card-img-top" alt="Anzuelo">
+        <div class="card-body">
+          <h5 class="card-title">Kit de Herramientas</h5>
+          <p class="card-text">Herramientas esenciales para tu aventura de pesca ya que cuenta con varios tipos de herramientas.</p>
+          <p class="fw-bold">₡22,000</p>
+          <a href="https://en.wikipedia.org/wiki/Fishing_tackle" target="_blank"class="stretched-link"></a>
+          <button class="btn btn-primary w-100 position-relative"  style="z-index: 2;" onclick="agregarCarrito('Kit de Herramientas', 22000)">Agregar a el carrito</button>
+        </div>
+      </div>
+    </div>
+
+        <div class="col-md-4">
+      <div class="card shadow mb-4">
+        <img src="Imagenes/kit de pesca.jpg" class="card-img-top" alt="Anzuelo">
+        <div class="card-body">
+          <h5 class="card-title">Kit de pescas</h5>
+          <p class="card-text">Una ñerfecta obcion de gran calidad de los diferentes utencilios de pesca y facil de transportar.</p>
+          <p class="fw-bold">₡115,000</p>
+           <a href="https://en.wikipedia.org/wiki/Fishing_tackle"target="_blank"class="stretched-link"></a>
+          <button class="btn btn-primary w-100 position-relative"style="z-index: 2;" onclick="agregarCarrito('Kit de Pesca', 115000)">Agregar a el carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="carrito.js/carrito.js"></script>
+
+<p class="text-center">
+  TODOS LOS ARTICULOS QUE ESTEN EN EL CARRITO SE CANCELAN EN PERSONA NO HACEMOS ENVIOS
+</p>
+
+  <footer class=" text-white text-center p-3">
+    <div>
+      <h3>Horario</h3>
+      <table class="tabla-footer">
+        <tr><td text-center>Lunes - Domingo </td> <td> 4:00 AM - 7:00 PM</td></tr>
+      </table>
+    </div>
+
+    <div>
+      <h3>Contactanos</h3>
+      <p>Puntarenas, Costa Rica</p>
+      <p>Tel: 6189-5551</p>
+      <p class="copy">© 2026 PECARDON</p>
+    </div>
+
+  </div>
+  
+  </footer>
+</body>
+
+</html>

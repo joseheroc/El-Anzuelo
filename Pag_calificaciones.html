@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="Imagenes/logo.png" type="image/x-icon">
+<title>Calificaciones</title>
+
+<link rel="stylesheet" href="hoja.css">
+    <link rel="stylesheet" href="boostrap.css">
+
+</head>
+
+ <header>
+        <div class="logo">
+            <img src="Imagenes/logo.png" alt="Logo de PECARDON">
+        </div>
+           <div style="position:absolute; top:20px; right:20px; cursor:pointer;" onclick="toggleCarrito()">
+  <span id="contadorCarrito"></span>
+  <img src="Imagenes/carrito 21.png" class="carrito">
+</div>
+    </header>
+
+    <nav>
+        <ul class ="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Pag_servicios.html">Servicios</a></li>
+            <li><a href="Pag_tienda.html">tienda</a></li>
+            <li><a href="Pag_calificaciones.html">Calificaciones</a></li>
+            <li><a href="Pag_mapa.html">Mapa</a></li>
+            <li><a href="Pag_citas.html">Citas</a></li>
+        </ul>
+    </nav>
+    <div id="carritoPanel" style="
+  display:none;
+  position:fixed;
+  top:60px;
+  right:20px;
+  width:300px;
+  background:rgb(255, 255, 255);
+  border:1px solid #e4e4e4;
+  padding:10px;
+  box-shadow:0 0 10px rgba(0,0,0,0.2);
+  z-index:1000;
+">
+  <h5>Carrito</h5>
+  <ul id="listaCarrito"></ul>
+
+  <p id="total"></p>
+</div>
+
+<body>
+
+<div class="contenedor">
+
+  <h2>Calificaciones de Clientes</h2>
+
+  <div class="formulario">
+    <input type="text" id="nombre" placeholder="Tu nombre">
+    
+    <select id="rating">
+      <option value="5">⭐⭐⭐⭐⭐</option>
+      <option value="4">⭐⭐⭐⭐</option>
+      <option value="3">⭐⭐⭐</option>
+      <option value="2">⭐⭐</option>
+      <option value="1">⭐</option>
+    </select>
+
+    <textarea id="comentario" placeholder="Escribe tu comentario"></textarea>
+    <button onclick="agregarComentario()">Enviar</button>
+  </div>
+
+  <div id="listaComentarios"></div>
+
+</div>
+<script>
+
+let comentarios = JSON.parse(localStorage.getItem("comentarios")) || [
+  
+];
+
+function mostrarComentarios() {
+  let contenedor = document.getElementById("listaComentarios");
+  contenedor.innerHTML = "";
+
+  comentarios.forEach(c => {
+    contenedor.innerHTML += `
+      <div class="comentario">
+        <div class="nombre">${c.nombre}</div>
+        <div class="estrellas">${"⭐".repeat(c.rating)}</div>
+        <div>${c.texto}</div>
+      </div>
+    `;
+  });
+}
+
+function agregarComentario() {
+  let nombre = document.getElementById("nombre").value;
+  let texto = document.getElementById("comentario").value;
+  let rating = document.getElementById("rating").value;
+
+  if(nombre === "" || texto === "") {
+    alert("Complete todos los campos");
+    return;
+  }
+
+  comentarios.push({
+    nombre: nombre,
+    texto: texto,
+    rating: parseInt(rating)
+  });
+
+  localStorage.setItem("comentarios", JSON.stringify(comentarios));
+  document.getElementById("nombre").value = "";
+  document.getElementById("comentario").value = "";
+
+  mostrarComentarios();
+}
+mostrarComentarios();
+
+</script>
+<script src="carrito.js/carrito.js"></script>
+  <footer class=" text-white text-center p-3">
+    <div>
+      <h3>Horario</h3>
+      <table class="tabla-footer">
+        <tr><td text-center>Lunes - Domingo </td> <td> 4:00 AM - 7:00 PM</td></tr>
+      </table>
+    </div>
+    <div>
+      <h3>Contactanos</h3>
+      <p>Puntarenas, Costa Rica</p>
+      <p>Tel: 6189-5551</p>
+      <p class="copy">© 2026 PECARDON</p>
+    </div>
+  </div>
+
+  </footer>
+
+</body>
+</html>

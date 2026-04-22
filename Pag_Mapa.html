@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa</title>
+    <link rel="shortcut icon" href="Imagenes/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="hoja.css">
+    <link rel="stylesheet" href="boostrap.css">
+</head>
+
+ <header>
+        <div class="logo">
+            <img src="Imagenes/logo.png" alt="Logo de PECARDON">
+        </div>
+        <div style="position:absolute; top:20px; right:20px; cursor:pointer;" onclick="toggleCarrito()">
+  <span id="contadorCarrito"></span>
+  <img src="Imagenes/carrito 21.png" class="carrito">
+</div>
+    </header>
+
+ <nav>
+        <ul class ="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Pag_servicios.html">Servicios</a></li>
+            <li><a href="Pag_tienda.html">tienda</a></li>
+            <li><a href="Pag_calificaciones.html">Calificaciones</a></li>
+            <li><a href="Pag_mapa.html">Mapa</a></li>
+            <li><a href="Pag_citas.html">Citas</a></li>
+        </ul>
+    </nav>
+
+            <div id="carritoPanel" style="
+  display:none;
+  position:fixed;
+  top:60px;
+  right:20px;
+  width:300px;
+  background:white;
+  border:1px solid #e4e4e4;
+  padding:10px;
+  box-shadow:0 0 10px rgba(0,0,0,0.2);
+  z-index:1000;
+">
+  <h5>Carrito</h5>
+  <ul id="listaCarrito"></ul>
+  <p id="total"></p>
+</div>
+<body>
+
+  <h2 class="text-center mb-4">Ubicación en Puntarenas</h2>
+  <div class="card shadow p-3">
+<img src="Imagenes/mapa puntarrenas.png" usemap="#image-map">
+
+<map name="image-map">
+    <area target="" alt="Zona 1" title="Zona 1" href="https://www.google.com/maps/dir//9.9464488,-84.8462073/@9.944895,-84.7949387,12.8z/data=!4m2!4m1!3e1?entry=ttu&amp;g_ep=EgoyMDI2MDQxOS4wIKXMDSoASAFQAw%3D%3D" coords="367,412,786,598" shape="rect">
+    <area target="" alt="Zona 2" title="Zona 2" href="https://www.google.com/maps/dir//9.9361548,-84.7807412/@9.944895,-84.7949387,12.8z/data=!4m2!4m1!3e1?entry=ttu&amp;g_ep=EgoyMDI2MDQxOS4wIKXMDSoASAFQAw%3D%3D" coords="849,455,1049,662" shape="rect">
+    <area target="" alt="Zona 3" title="Zona 3" href="https://www.google.com/maps/dir//9.8938101,-84.7610225/@9.944895,-84.7949387,12.8z/data=!4m2!4m1!3e1?entry=ttu&amp;g_ep=EgoyMDI2MDQxOS4wIKXMDSoASAFQAw%3D%3D" coords="985,707,1164,901" shape="rect">
+    <area target="" alt="Zona 4" title="Zona 4" href="https://www.google.com/maps/dir//9.8916732,-84.8726304/@9.944895,-84.7949387,12.8z/data=!4m2!4m1!3e1?entry=ttu&amp;g_ep=EgoyMDI2MDQxOS4wIKXMDSoASAFQAw%3D%3D" coords="164,694,837,872" shape="rect">
+</map>
+
+  </div>
+
+  <div class="mt-4 text-center">
+    <p>Ofrecemos salidas desde el sector de Puntarenas, Costa Rica.</p>
+    <p>Disfruta de la mejor experiencia de pesca en el Pacífico.</p>
+  </div>
+
+     <section class="servicios">
+       
+        <div class="contenedor-articulos">
+            <article>
+                <img src="imagenes/zona verde.png">
+                <h3>Zona Verde 1</h3>
+                <p>Esta área representa una zona de pesca en aguas relativamente abiertas, donde la profundidad es mayor y hay buena circulación de corrientes.</p>
+                            <br>
+                <h3>Características</h3>
+                 <ul>
+               <li>Aguas profundas</li>
+               <li>Mayor movimiento de peces</li>
+               <li>Ideal para pesca deportiva</li>
+              </ul>
+              <ul><h3>Especies presentes</h3>
+                <li>Atun</li>
+                <li>Dorado</li>
+                <li>Pez Vela</li>
+                <li>Barracuda</li>
+              </ul>
+            </article>
+
+            <article>
+                <img src="Imagenes/Zona Amarilla.png">
+                <h3>Zona amarilla 2</h3>
+                <p>Esta zona se encuentra más cercana a la costa, con una mezcla entre aguas profundas y áreas más tranquilas.</p>
+                  <br>
+                <h3>Características</h3>
+                 <ul>
+               <li>Zona de transición</li>
+               <li>Buena para pesca variada</li>
+               <li>Menor oleaje</li>
+              </ul>
+              <ul><h3>Especies presentes</h3>
+                <li>Pargo</li>
+                <li>Corvina</li>
+                <li>Jurel</li>
+                <li>Sierra</li>
+              </ul>
+            
+            </article>
+
+            <article>
+                <img src="Imagenes/Zona Naranja.png">
+                <h3>Zona Naranja 3</h3>
+                <p>Área más protegida y cercana al litoral, ideal para pesca más tranquila o recreativa.</p>
+                            <br>
+                <h3>Características</h3>
+                 <ul>
+               <li>Aguas Profundas</li>
+               <li>Ideal para conocedores</li>
+               <li>Mayor oleaje</li>
+              </ul>
+              <ul><h3>Especies presentes</h3>
+                <li>Tilapia</li>
+                <li>Rovalo</li>
+                <li>Mojarra</li>
+                <li>Pequeños pargos</li>
+              </ul>
+
+             </article>
+
+            <article>
+                <img src="Imagenes/Zona Roja.png">
+                <h3>Zona Roja 4</h3>
+                <p>Esta zona representa un área amplia de actividad pesquera, posiblemente con mayor concentración de especies debido a corrientes o estructuras submarinas.</p>
+                <br>
+              <ul><h3>Características</h3>
+               <li>Alta concentración de peces</li>
+               <li>Ideal para jornadas largas</li>
+               <li>Puede requerir mayor experiencia</li>
+              </ul>
+              <ul><h3>Especies presentes</h3>
+                <li>Atún</li>
+                <li>Dorado</li>
+                <li>Tiburón (en algunos casos)</li>
+                <li>Pez espada</li>
+              </ul>
+
+              </article>
+        </div>
+        </section>
+        </article>
+<script src="carrito.js/carrito.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <footer class=" text-white text-center p-3">
+    <div>
+      <h3>Horario</h3>
+      <table class="tabla-footer">
+        <tr><td text-center>Lunes - Domingo </td> <td> 4:00 AM - 7:00 PM</td></tr>
+      </table>
+    </div>
+
+    <div>
+      <h3>Contactanos</h3>
+      <p>Puntarenas, Costa Rica</p>
+      <p>Tel: 6189-5551</p>
+      <p class="copy">© 2026 PECARDON</p>
+    </div>
+
+  </div>
+
+  </footer>
+</body>
+
+</html>
